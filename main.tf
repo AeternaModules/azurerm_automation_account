@@ -10,7 +10,7 @@ resource "azurerm_automation_account" "automation_accounts" {
   tags                          = each.value.tags
 
   dynamic "encryption" {
-    for_each = each.value.encryption != null ? [each.value.encryption] : []
+    for_each = each.value.encryption != null ? each.value.encryption : []
     content {
       key_source                = encryption.value.key_source
       key_vault_key_id          = encryption.value.key_vault_key_id

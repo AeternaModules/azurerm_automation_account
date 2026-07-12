@@ -27,11 +27,11 @@ EOT
     local_authentication_enabled  = optional(bool) # Default: true
     public_network_access_enabled = optional(bool) # Default: true
     tags                          = optional(map(string))
-    encryption = optional(object({
+    encryption = optional(list(object({
       key_source                = optional(string)
       key_vault_key_id          = string
       user_assigned_identity_id = optional(string)
-    }))
+    })))
     identity = optional(object({
       identity_ids = optional(set(string))
       type         = string
