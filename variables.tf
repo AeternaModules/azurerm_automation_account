@@ -24,8 +24,8 @@ EOT
     name                          = string
     resource_group_name           = string
     sku_name                      = string
-    local_authentication_enabled  = optional(bool) # Default: true
-    public_network_access_enabled = optional(bool) # Default: true
+    local_authentication_enabled  = optional(bool)
+    public_network_access_enabled = optional(bool)
     tags                          = optional(map(string))
     encryption = optional(list(object({
       key_source                = optional(string)
