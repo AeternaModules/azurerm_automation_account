@@ -11,7 +11,6 @@ Optional:
     - public_network_access_enabled
     - tags
     - encryption (block):
-        - key_source (optional)
         - key_vault_key_id (required)
         - user_assigned_identity_id (optional)
     - identity (block):
@@ -28,7 +27,6 @@ EOT
     public_network_access_enabled = optional(bool)
     tags                          = optional(map(string))
     encryption = optional(list(object({
-      key_source                = optional(string)
       key_vault_key_id          = string
       user_assigned_identity_id = optional(string)
     })))

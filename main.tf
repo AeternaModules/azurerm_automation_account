@@ -12,7 +12,6 @@ resource "azurerm_automation_account" "automation_accounts" {
   dynamic "encryption" {
     for_each = each.value.encryption != null ? each.value.encryption : []
     content {
-      key_source                = encryption.value.key_source
       key_vault_key_id          = encryption.value.key_vault_key_id
       user_assigned_identity_id = encryption.value.user_assigned_identity_id
     }
