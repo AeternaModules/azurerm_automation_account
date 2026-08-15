@@ -26,7 +26,7 @@ output "automation_accounts_hybrid_service_url" {
 }
 output "automation_accounts_identity" {
   description = "Map of identity values across all automation_accounts, keyed the same as var.automation_accounts"
-  value       = { for k, v in azurerm_automation_account.automation_accounts : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_automation_account.automation_accounts : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "automation_accounts_local_authentication_enabled" {
   description = "Map of local_authentication_enabled values across all automation_accounts, keyed the same as var.automation_accounts"
